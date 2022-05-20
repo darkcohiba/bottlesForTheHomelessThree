@@ -48,7 +48,7 @@ comment14 = Comment.create(content: "Love this", user_id: user3.id, post_id: pos
 puts "creating addresses"
 add1 = Address.create(bottle_id: bottles1.id, line_1: "337 Federal Blvd", city:"Denver", state: "CO", country: "US", zipcode: 80211, latitude: 39.7689534, longitude: -105.0255292)
 add2 = Address.create(bottle_id: bottles2.id, line_1: "1902 Blake St", city:"Denver", state: "CO", country: "US", zipcode: 80202, latitude: 39.7533366, longitude: -104.995064)
-add3 = Address.create(bottle_id: bottles3.id, line_1: "1415 15th Street, Denver", city:"Denver", state: "CO", country: "US", zipcode: 80202, latitude: 39.749357, longitude: -104.999601)
+add3 = Address.create(bottle_id: bottles3.id, line_1: "1415 15th Street", city:"Denver", state: "CO", country: "US", zipcode: 80202, latitude: 39.749357, longitude: -104.999601)
 
 puts "finished seeding"
 

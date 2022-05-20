@@ -34,7 +34,7 @@ export default function Posts ({}){
     return(
         <div class="image-container">
         {posts.map(post=>
-            <div class="image-card">
+            <div key={post.id} class="image-card">
                 <h8 id="card-title" class="title">{post.title}</h8>
                 <h4 id="card-owner" class="owner">Uploaded by: {post.user.username}</h4>
                 <img id="card-image" class="image" src={post.bottle.picture} alt={post.title} />
