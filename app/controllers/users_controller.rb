@@ -13,6 +13,16 @@ class UsersController < ApplicationController
     render json: @user
   end
 
+  # GET /users/1
+  def showme
+    user = User.find_by(id: session[:user_id])
+    if user
+      render json: user
+    else
+      render json: { error: "Not authorized" }, status: :unauthorized
+    end
+  end
+
   # POST /users
   def create
     @user = User.new(user_params)
