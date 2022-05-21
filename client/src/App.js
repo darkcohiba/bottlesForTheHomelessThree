@@ -6,6 +6,7 @@ import Login from './components/Login';
 import Auth from './components/Auth';
 import MapPage from './components/MapPage';
 import AddPost from './components/AddPost';
+import Protected from './Protected';
 import 'bulma/css/bulma.min.css';
 
 
@@ -27,7 +28,7 @@ function App() {
               <Route path= "/login"  element = {<Login isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} setUser={setUser} user={user} />} />
               <Route path= "/Auth"  element = {<Auth isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} setUser={setUser} user={user} />} />
               <Route path= "/Map"  element = {<MapPage isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} setUser={setUser} user={user} />} />
-              <Route path= "/AddPost"  element = {<AddPost isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} setUser={setUser} user={user} />} />
+              <Route path= "/AddPost"  element = {<Protected isAuthenticated={isAuthenticated}><AddPost isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} setUser={setUser} user={user} /></Protected>} />
             </Routes>
           </Router>
         </div>

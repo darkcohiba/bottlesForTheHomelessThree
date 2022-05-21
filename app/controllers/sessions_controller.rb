@@ -1,5 +1,5 @@
-class   Api::V1::SessionsController < ApplicationController
-    skip_before_action :authorize_user, :only => [:login, :logout]
+class SessionsController < ApplicationController
+    # skip_before_action :authorize_user, :only => [:login, :logout]
 
     def login
         user = User.find_by(username:params[:username])

@@ -44,9 +44,11 @@ export default function Posts ({}){
                     </p>
                     <button id="like-button" class="like-button" onClick={updatedClaimed} >CLAIMED</button>
                 </div>
-                <ul id="comments-list" class="comments">
-                    <li>Comments will load here</li>
-                </ul>
+                {/* <ul id="comments-list" class="comments">
+                    {post.forEach(function(post){
+                        <li>{post}</li>
+                    })}
+                </ul> */}
                 <form id="comment-form" class="comment-form">
                     <input
                         class="comment-input"

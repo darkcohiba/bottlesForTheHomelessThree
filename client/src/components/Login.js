@@ -13,9 +13,10 @@ function Login({isAuthenticated,setUser,setIsAuthenticated, user}) {
       const currentUser = {
         username: username,
         password
-      }   
+      }
+      console.log(currentUser)
 
-      fetch(`http://localhost:3000/login`,{
+      fetch(`/login`,{
         method:'POST',
         headers:{'Content-Type': 'application/json'},
         body:JSON.stringify(currentUser)
@@ -23,11 +24,11 @@ function Login({isAuthenticated,setUser,setIsAuthenticated, user}) {
       .then(res => {
         if(res.ok){
           res.json()
-          .then(user=>{
-            setUser(user)
+          .then(thisUser=>{
+            setUser(thisUser)
             setIsAuthenticated(true)
             console.log("working?")
-            navigate("/home")
+            navigate("/")
           })
           
         } else {
@@ -58,7 +59,7 @@ function Login({isAuthenticated,setUser,setIsAuthenticated, user}) {
         </div>
         <div class="column is-half is-offset-one-quarter field">
           <p class="control"></p>
-            <button class="button is-success">
+            <button class="button is-success" onClick={onSubmit}>
               Login
             </button>
         </div>
@@ -72,13 +73,15 @@ function Login({isAuthenticated,setUser,setIsAuthenticated, user}) {
           <div className="column is-offset-one-quarter ">
             <button
               type="submit"
-              className="button is-primary" onClick={onSubmit}>
+              className="button is-primary" >
               <span className="">
               </span>
               Sign in
             </button>
           </div>
-        {error?<div>{error}</div>:null}
+          <div className="column is-offset-one-quarter ">
+            {error?<div>{error}</div>:null}
+          </div>
     </div>
   )
 }

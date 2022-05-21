@@ -8,22 +8,9 @@ import { IoAddOutline, IoMapSharp } from "react-icons/io5";
 
 
 
-export default function Header ({ setPosts, search, setSearch, isAuthenticated,setUser,setIsAuthenticated, user}){
+export default function Header ({ setPosts, isAuthenticated,setUser,setIsAuthenticated, user}){
 
     const navigate = useNavigate();
-
-    function onSubmit(e){
-        e.preventDefault();
-        
-    }
-
-    // useEffect(()=> {
-    //     fetch(`http://localhost:3000/posts/${search}`)
-    //         .then((resp) => resp.json())
-    //         .then((data) => setPosts(data))
-    // },[onSubmit])
-
-
 
     function onMove(){
         navigate("/")

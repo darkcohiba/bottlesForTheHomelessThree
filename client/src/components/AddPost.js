@@ -8,11 +8,10 @@ import Footer from './Footer';
 
 export default function AddPost ({ isAuthenticated,setUser,setIsAuthenticated, user}){
 
-    const [search, setSearch] = useState("")
     
     return(
         <div>
-            <Header search={search} setSearch={setSearch} isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} setUser={setUser} user={user}/>
+            <Header  isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} setUser={setUser} user={user}/>
             <div id="postInfo">
                 <h3>Post Information</h3>
                 <form>
