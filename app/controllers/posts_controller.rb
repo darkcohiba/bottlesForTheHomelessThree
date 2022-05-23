@@ -13,11 +13,6 @@ class PostsController < ApplicationController
     render json: @post
   end
 
-  # GET /search posts
-  def listposts
-    post = Post.where("title like ?", "%#{name}%")
-    render json: post
-  end
 
   # POST /posts
   def create

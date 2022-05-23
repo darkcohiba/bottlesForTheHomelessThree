@@ -12,6 +12,17 @@ export default function Header ({ setPosts, isAuthenticated,setUser,setIsAuthent
 
     const navigate = useNavigate();
 
+    function logout(){
+        fetch("/logout",{
+            method:'DELETE'
+        })
+        .then(()=>{
+            setIsAuthenticated(false);
+            setUser(null);
+            navigate("/")
+        })
+    }
+
     function onMove(){
         navigate("/")
     }
@@ -22,6 +33,10 @@ export default function Header ({ setPosts, isAuthenticated,setUser,setIsAuthent
 
     function goToMap(){
         navigate("/map")
+    }
+
+    function moveLogin(){
+        navigate("/login")
     }
 
     return(
@@ -38,9 +53,11 @@ export default function Header ({ setPosts, isAuthenticated,setUser,setIsAuthent
                 <div>
                     <IoAddOutline id="plus" onClick={postPage}/>
                 </div>
-                <div class="button is-danger">
-                    logout
-                </div>
+                {!user ?
+                <button onClick={moveLogin}>Login</button>
+                :
+                <button onClick={logout}>Logout</button>
+                }
             </div>
         </div>
     )

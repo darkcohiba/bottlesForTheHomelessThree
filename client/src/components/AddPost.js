@@ -11,7 +11,7 @@ export default function AddPost ({ isAuthenticated,setUser,setIsAuthenticated, u
     
     return(
         <div>
-            <Header  isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} setUser={setUser} user={user}/>
+            <Header isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} setUser={setUser} user={user}/>
             <div id="postInfo">
                 <h3>Post Information</h3>
                 <form>
