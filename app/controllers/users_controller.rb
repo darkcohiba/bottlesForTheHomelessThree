@@ -15,7 +15,9 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def showme
-    user = User.find_by(id: session[:user_id])
+    puts session[:current_user] 
+    user = User.find_by(id: session[:current_user])
+    puts session[:current_user] 
     if user
       render json: user
     else
@@ -25,6 +27,7 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
+    
     @user = User.new(user_params)
 
     if @user.save

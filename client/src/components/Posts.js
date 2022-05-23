@@ -7,10 +7,10 @@ import { useNavigate } from "react-router"
 
 
 
-export default function Posts ({}){
+export default function Posts ({isAuthenticated,setUser,setIsAuthenticated, user}){
 
     const navigate = useNavigate()
-    const [claimed, setClaimed] = useState(false)
+    // const [claimed, setClaimed] = useState(false)
     const [posts, setPost] = useState([])
     const [comment, setComment] = useState('')
 
@@ -19,14 +19,33 @@ export default function Posts ({}){
          .then(response =>response.json())
          .then((data) => setPost(data))
     }, []);
-    console.log(posts)
+    console.log(user)
+    // console.log(user.id)
 
-
-
-    function updatedClaimed(e){
-        e.preventDefault();
-        setClaimed = true;
+    function onSubmit(e){
+        e.preventDefault()
+        const newComment = {
+            content: comment,
+            user_id: user.id,
+            // post_id: post.id,
+        }
+        fetch(`/comments`,{
+            method:'POST',
+            headers:{'Content-Type': 'application/json'},
+            body:JSON.stringify(newComment)})
+            .then(response => response.json())
+            .then((data) => console.log(data))
     }
+
+    console.log(comment)
+
+
+
+
+    // function updatedClaimed(e){
+    //     e.preventDefault();
+    //     setClaimed = true;
+    // }
     
     function onHome(){
         navigate("/map")
@@ -42,25 +61,59 @@ export default function Posts ({}){
                     <p onClick={onHome}>{post.addresses.line_1},{"\n"}
                     {post.addresses.city}, {post.addresses.state} {post.addresses.zipcode}
                     </p>
-                    <button id="like-button" class="like-button" onClick={updatedClaimed} >CLAIMED</button>
+                    {!post.bottle.isClaimed ? <button id="like-button" class="like-button" 
+                        onClick={(e)=>{
+                                    // e.preventDefault()
+                                    const id = post.bottle.id;
+                                    const updatedBottle = {
+                                        isClaimed: true,
+                                    };
+                                    fetch(`/bottles/${id}`,{
+                                        method:'PATCH',
+                                        headers:{'Content-Type': 'application/json'},
+                                        body:JSON.stringify(updatedBottle)})
+                                        .then(response => response.json())
+                                        .then((data) => console.log(data));
+                                    window.location.reload()
+                                }} >CLAIM</button> 
+                    : 
+                    <button id="claimed-button" class="claimed-button" >CLAIMED</button>}
+                    
                 </div>
-                {/* <ul id="comments-list" class="comments">
-                    {post.forEach(function(post){
-                        <li>{post}</li>
-                    })}
-                </ul> */}
-                <form id="comment-form" class="comment-form">
-                    <input
-                        class="comment-input"
-                        type="text"
-                        name="comment"
-                        id="comment"
-                        placeholder="Add a comment..."
-                        value={comment}
-                        onChange={(event) =>setComment(event.target.value)}
-                    />
-                    <button class="comment-button" type="submit">Post</button>
-                </form>
+                <ul id="comments-list" class="comments">
+                    {post.comments.map(comment => 
+                        <li>{comment.content} by: {comment.user.username}</li>
+                    )}
+                </ul>
+                {user ? 
+                    <form id="comment-form" class="comment-form">
+                        <input
+                            class="comment-input"
+                            type="text"
+                            name="comment"
+                            id="comment"
+                            placeholder="Add a comment..."
+                            value={comment}
+                            onChange={(event) =>setComment(event.target.value)}
+                        />
+                        <button class="comment-button" type="submit" onClick={(e)=>{
+                                    // e.preventDefault()
+                                    const newComment = {
+                                        content: comment,
+                                        user_id: user.id,
+                                        post_id: post.id,
+                                    }
+                                    fetch(`/comments`,{
+                                        method:'POST',
+                                        headers:{'Content-Type': 'application/json'},
+                                        body:JSON.stringify(newComment)})
+                                        .then(response => response.json())
+                                        .then((data) => console.log(data))
+                                }}
+                        >Post</button>
+                    </form>
+                : null
+                }
             </div>
             )}
         </div>

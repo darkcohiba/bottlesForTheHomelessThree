@@ -11,12 +11,11 @@ import './homePage.css';
 export default function Homepage ({ isAuthenticated,setUser,setIsAuthenticated, user}){
 
     const [search, setSearch] = useState("")
-    const[posts, setPosts] = useState([])
     
     return(
         <div>
-            <Header setPosts={setPosts} search={search} setSearch={setSearch} isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} setUser={setUser} user={user}/>
-            <Posts />
+            <Header isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} setUser={setUser} user={user}/>
+            <Posts isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} setUser={setUser} user={user}/>
             <Footer />
         </div>
     )

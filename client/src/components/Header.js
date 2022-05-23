@@ -8,7 +8,7 @@ import { IoAddOutline, IoMapSharp } from "react-icons/io5";
 
 
 
-export default function Header ({ setPosts, isAuthenticated,setUser,setIsAuthenticated, user}){
+export default function Header ({isAuthenticated,setUser,setIsAuthenticated, user}){
 
     const navigate = useNavigate();
 

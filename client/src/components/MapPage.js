@@ -78,6 +78,23 @@ export default function MapPage(){
                                     <h2>Address</h2>
                                     <p>{selected.line_1}, {selected.city}</p>
                                     <p>{selected.state}, {selected.zipcode}</p>
+                                    {!selected.bottle.isClaimed ? <button id="like-button" class="like-button" 
+                                        onClick={(e)=>{
+                                                    // e.preventDefault()
+                                                    const id = selected.bottle.id;
+                                                    const updatedBottle = {
+                                                        isClaimed: true,
+                                                    };
+                                                    fetch(`/bottles/${id}`,{
+                                                        method:'PATCH',
+                                                        headers:{'Content-Type': 'application/json'},
+                                                        body:JSON.stringify(updatedBottle)})
+                                                        .then(response => response.json())
+                                                        .then((data) => console.log(data));
+                                                    window.location.reload()
+                                                }} >CLAIM</button> 
+                                        : 
+                                        <button id="claimed-button" class="claimed-button" >CLAIMED</button>}
                                 </div>
                             </InfoWindow>
                             ) : null}

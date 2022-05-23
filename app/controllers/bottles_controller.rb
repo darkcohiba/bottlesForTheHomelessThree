@@ -26,7 +26,7 @@ class BottlesController < ApplicationController
 
   # PATCH/PUT /bottles/1
   def update
-    if @bottle.update(bottle_params)
+    if @bottle.update(update_bottle_params)
       render json: @bottle
     else
       render json: @bottle.errors, status: :unprocessable_entity
@@ -45,7 +45,7 @@ class BottlesController < ApplicationController
     end
 
     # Only allow a list of trusted parameters through.
-    def bottle_params
-      params.fetch(:bottle, {})
+    def update_bottle_params
+      params.permit(:isClaimed)
     end
 end

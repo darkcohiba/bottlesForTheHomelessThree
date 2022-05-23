@@ -59,6 +59,10 @@
   transition: color 300ms;
   cursor: pointer;
   border: solid black 1px;
+  margin-bottom: 2px;
+  margin-right: 10px;
+  /* height: 30px;
+  width: 80px; */
 }
 
 .like-button:hover {
@@ -74,6 +78,19 @@
   outline: none;
 }
 
+.claimed-button {
+  color: rgb(255, 127, 80);
+  margin-bottom: 5px;
+  font-size: 1.2rem;
+  border: none;
+  background: black;
+  transition: color 300ms;
+  cursor: pointer;
+  border: solid black 1px;
+}
+
+
+
 .comments {
   list-style-type: none;
   margin-left: 0;
@@ -84,6 +101,7 @@
 .comments li {
   margin: 2px 0;
   letter-spacing: 0.2px;
+  border: 1px solid black;
 }
 
 .comment-form {

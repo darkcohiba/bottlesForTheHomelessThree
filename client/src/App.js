@@ -1,5 +1,5 @@
 import './App.css';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Homepage from './components/Homepage';
 import Login from './components/Login';
@@ -9,14 +9,19 @@ import AddPost from './components/AddPost';
 import Protected from './Protected';
 import 'bulma/css/bulma.min.css';
 
-
-
-
 function App() {
 
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [errors, setErrors] = useState(false)
   const [user, setUser] = useState(null)
+
+  useEffect(() => {
+    fetch("/me").then((response) => {
+      if (response.ok) {
+        response.json().then((user) => setUser(user), setIsAuthenticated(true));
+      }
+    });
+      }, []);
 
 
 
@@ -35,5 +40,4 @@ function App() {
   );
 }
 
-export default App;
-
+export default App

@@ -73,10 +73,9 @@ function Login({isAuthenticated,setUser,setIsAuthenticated, user}) {
           <div className="column is-offset-one-quarter ">
             <button
               type="submit"
-              className="button is-primary" >
-              <span className="">
-              </span>
-              Sign in
+              className="button is-primary" 
+              >
+              <a href="/auth" className="">                Sign Up Here!</a>
             </button>
           </div>
           <div className="column is-offset-one-quarter ">
