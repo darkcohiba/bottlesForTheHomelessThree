@@ -1,19 +1,16 @@
 import { useState } from "react";
 import { useNavigate } from "react-router"
 import Header from './Header';
-import Footer from './Footer';
 
 
-
-
-export default function AddPost ({ isAuthenticated,setUser,setIsAuthenticated, user, bottleID, setBottleID, postID, setPostID}){
+export default function AddBottle ({ isAuthenticated,setUser,setIsAuthenticated, user, bottleID, setBottleID, postID, setPostID}){
 
 
     const navigate = useNavigate(); 
-    const [title, setTitle] = useState("")
-    const [content, setContent] = useState("")
-    // const [photo, setPhoto] = useState("")
-    // const [glass, setGlass] = useState(false)
+    // const [title, setTitle] = useState("")
+    // const [content, setContent] = useState("")
+    const [photo, setPhoto] = useState("")
+    const [glass, setGlass] = useState(false)
     // const [lineOne, setLineOne] = useState("")
     // const [cityName, setCityName] = useState("")
     // const [stateName, setStateName] = useState("")
@@ -24,17 +21,17 @@ export default function AddPost ({ isAuthenticated,setUser,setIsAuthenticated, u
     // const [bottleID, setBottleID] = useState("")
     // const [postID, setPostID] = useState("")
 
-    const newPost = {
-        title: title,
-        content: content,
-        user_id: user.id
-    }
-    // const newBottle = {
-    //     picture: photo,
-    //     post_id: postID,
-    //     isClaimed: false,
-    //     isGlass: glass
+    // const newPost = {
+    //     title: title,
+    //     content: content,
+    //     user_id: user.id
     // }
+    const newBottle = {
+        picture: photo,
+        post_id: postID,
+        isClaimed: false,
+        isGlass: glass
+    }
     // const newAddress = {
     //     bottle_id: bottleID,
     //     line_1: lineOne,
@@ -46,30 +43,30 @@ export default function AddPost ({ isAuthenticated,setUser,setIsAuthenticated, u
     //     latitude: latitude
     // }
     function submitPost(){
-        fetch(`/posts`,{
-            method:'POST',
-            headers:{'Content-Type': 'application/json'},
-            body:JSON.stringify(newPost)})
-            .then(response => response.json())
-            .then((data) =>{
-                console.log(data.id)
-                setPostID(data.id)})
-        // fetch(`/bottles`,{
+        // fetch(`/posts`,{
         //     method:'POST',
         //     headers:{'Content-Type': 'application/json'},
-        //     body:JSON.stringify(newBottle)})
+        //     body:JSON.stringify(newPost)})
         //     .then(response => response.json())
         //     .then((data) =>{
-        //         console.log(data)
-        //         setBottleID(data.id)
-        //     })
+        //         console.log(data.id)
+        //         setPostID(data.id)})
+        fetch(`/bottles`,{
+            method:'POST',
+            headers:{'Content-Type': 'application/json'},
+            body:JSON.stringify(newBottle)})
+            .then(response => response.json())
+            .then((data) =>{
+                console.log(data)
+                setBottleID(data.id)
+            })
         // fetch(`/addresses`,{
         //     method:'POST',
         //     headers:{'Content-Type': 'application/json'},
         //     body:JSON.stringify(newAddress)})
         //     .then(response => response.json())
         //     .then((data) => console.log(data)) 
-        navigate("/addbottle")
+        navigate("/addaddress")
     }
 
 
@@ -77,14 +74,14 @@ export default function AddPost ({ isAuthenticated,setUser,setIsAuthenticated, u
     return(
         <div>
             <Header isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} setUser={setUser} user={user}/>
-            <div id="postInfo">
+            {/* <div id="postInfo">
                 <h3>Post Information</h3>
                 <form>
                     <input className=" input" type="text" placeholder="Post Title..." value={title} onChange={(event) =>setTitle(event.target.value)}></input>
                     <input className=" input" type="text" placeholder="Caption..." value={content} onChange={(event) =>setContent(event.target.value)}></input>
                 </form>
-            </div>
-            {/* <div id="bottleInfo">
+            </div> */}
+            <div id="bottleInfo">
                 <h3>Bottle Information</h3>
                 <input className=" input is-link" type="text" placeholder="Picture Link..." value={photo} onChange={(event) =>setPhoto(event.target.value)}></input>
                 <div class="control">
@@ -92,7 +89,7 @@ export default function AddPost ({ isAuthenticated,setUser,setIsAuthenticated, u
                     {!glass ? <button className="button is-warning" onClick={() => setGlass(!glass)} >YES </button> : <button className="button is-warning" onClick={() => setGlass(!glass)} >NO </button> }
                 </div>
             </div>
-            <div id="addInfo">
+            {/* <div id="addInfo">
                 <h3>Address Information</h3>
                 <p>If you are having trouble finding the longitude and latitude of your address we reccomend the following website: <a href="https://www.gps-coordinates.net/"target="new">www.gps-coordinates.net</a>.</p>
                 <form>
@@ -105,11 +102,10 @@ export default function AddPost ({ isAuthenticated,setUser,setIsAuthenticated, u
                     <input className=" input" type="text" placeholder="Longitude" value={longitude} onChange={(event) =>setLongitude(event.target.value)}></input>
                 </form>
             </div> */}
-            <button className="button is-success" onClick={submitPost}>Add Bottle to Post</button>
+            <button className="button is-success" onClick={submitPost}>Add Address to Bottle</button>
             <div>
                 <iframe src='https://my.spline.design/molang3dcopy-284010e02a57d9cc764283d5fffb9cb0/' frameborder='0' width='100%' height='300px'></iframe>
             </div>
-            {/* <Footer /> */}
         </div>
     )
 }

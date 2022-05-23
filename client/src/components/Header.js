@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import {useNavigate} from 'react-router-dom'
 import pnglogo from "../assets/2.png"
 import './header.css';
-import { IoAddOutline, IoMapSharp } from "react-icons/io5";
+import { IoAddOutline, IoMapSharp, IoBook } from "react-icons/io5";
 
  
 
@@ -39,6 +39,10 @@ export default function Header ({isAuthenticated,setUser,setIsAuthenticated, use
         navigate("/login")
     }
 
+    function myPosts(){
+        navigate("/userposts")
+    }
+
     return(
         <div class="navbar-menu is-fixed-top">
         {/* <a class="navbar-item"> */}
@@ -53,10 +57,15 @@ export default function Header ({isAuthenticated,setUser,setIsAuthenticated, use
                 <div>
                     <IoAddOutline id="plus" onClick={postPage}/>
                 </div>
-                {!user ?
-                <button onClick={moveLogin}>Login</button>
+                {user ?
+                <IoBook id="plus" onClick={myPosts} />
                 :
-                <button onClick={logout}>Logout</button>
+                null
+                }
+                {!user ?
+                <button className="button is-success" onClick={moveLogin}>Login</button>
+                :
+                <button className="button is-warning" onClick={logout}>Logout</button>
                 }
             </div>
         </div>

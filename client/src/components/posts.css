@@ -1,5 +1,5 @@
 
-.image-container {
+.post-container {
   /* background-image: url("https://wallpaperaccess.com/full/2797875.jpg"); */
   width: 100%;
   display: flex;
@@ -21,6 +21,7 @@
   border-radius: 2px;
   text-align: left;
   background-color: white;
+  margin: 50px;
 }
 
 .image {

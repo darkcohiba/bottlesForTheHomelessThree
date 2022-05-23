@@ -13,6 +13,13 @@ class PostsController < ApplicationController
     render json: @post
   end
 
+  # # GET /top snake
+  # def topuser
+  #   post = Post.where("username = ? ", "Snake")
+
+  #   render json: post
+  # end
+
 
   # POST /posts
   def create
@@ -27,7 +34,7 @@ class PostsController < ApplicationController
 
   # PATCH/PUT /posts/1
   def update
-    if @post.update(post_params)
+    if @post.update(update_post_params)
       render json: @post
     else
       render json: @post.errors, status: :unprocessable_entity
@@ -47,6 +54,11 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.fetch(:post, {})
+      params.permit(:post,:title, :content, :user_id)
+    end
+
+    # Only allow a list of trusted parameters through.
+    def update_post_params
+      params.permit(:post, :content)
     end
 end

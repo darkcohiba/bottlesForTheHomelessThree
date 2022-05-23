@@ -45,6 +45,11 @@ class BottlesController < ApplicationController
     end
 
     # Only allow a list of trusted parameters through.
+    def bottle_params
+      params.permit(:bottle, :picture, :post_id, :isGlass, :isClaimed)
+    end
+
+    # Only allow a list of trusted parameters through.
     def update_bottle_params
       params.permit(:isClaimed)
     end
