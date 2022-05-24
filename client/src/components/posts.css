@@ -32,11 +32,13 @@
 }
 
 .title {
-  text-align: left;
+  text-align: center;
   padding: 15px 10px;
   font-size: 0.9rem;
   font-weight: 600;
   color: #000000dd;
+  text-decoration: underline;
+  text-decoration-color: aqua;
 }
 
 .address-claimed {

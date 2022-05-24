@@ -32,6 +32,9 @@ class UsersController < ApplicationController
 
     if @user.save
       render json: @user, status: :created, location: @user
+      puts @user
+      puts @user.email
+      UserMailer.with(user: @user).welcome_email.deliver_now
     else
       render json: @user.errors, status: :unprocessable_entity
     end
@@ -59,6 +62,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.fetch(:user, {})
+      params.permit(:user, :password, :email, :username, :isNonProfit)
     end
 end

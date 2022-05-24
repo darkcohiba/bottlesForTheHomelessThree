@@ -6,6 +6,7 @@ function Auth({setUser, setIsAuthenticated}) {
     const [username, setUserName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [isNonProfit, setIsNonProfit] = useState(false)
    
     const [errors, setErrors] = useState([])
 
@@ -14,9 +15,10 @@ function Auth({setUser, setIsAuthenticated}) {
         const user = {
             username: username,
             email,
-            password
+            password,
+            isNonProfit
         }
-        fetch(`http://localhost:3000/users`,{
+        fetch(`/users`,{
           method:'POST',
           headers:{'Content-Type': 'application/json'},
           body:JSON.stringify(user)
@@ -27,7 +29,7 @@ function Auth({setUser, setIsAuthenticated}) {
             .then(user=>{
               setUser(user)
               setIsAuthenticated(true)
-              navigate("/home")
+              navigate("/")
             })
           } else {
             res.json()
@@ -93,6 +95,9 @@ function Auth({setUser, setIsAuthenticated}) {
                   onChange={(event) =>setPassword(event.target.value)}
                 />
               </div>
+              <div>
+                <p>Are you a NonProfit?</p>
+                {!isNonProfit ? <button className="button is-warning" onClick={(e) => {e.preventDefault(); setIsNonProfit(!isNonProfit)}} >YES </button> : <button className="button is-warning" onClick={(e) => {e.preventDefault(); setIsNonProfit(!isNonProfit)}}  >NO </button> }              </div>
             </div>
             <div>
               <button

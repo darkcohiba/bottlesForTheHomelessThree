@@ -104,7 +104,7 @@ export default function AddBottle ({ isAuthenticated,setUser,setIsAuthenticated,
             </div> */}
             <button className="button is-success" onClick={submitPost}>Add Address to Bottle</button>
             <div>
-                <iframe src='https://my.spline.design/molang3dcopy-284010e02a57d9cc764283d5fffb9cb0/' frameborder='0' width='100%' height='300px'></iframe>
+                <iframe src='https://my.spline.design/molang3dcopy-284010e02a57d9cc764283d5fffb9cb0/' frameborder='0' width='100%' height='640px'></iframe>
             </div>
         </div>
     )

@@ -1,6 +1,8 @@
 import './posts.css';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router"
+import Comments from './Comments';
+
 
 
 
@@ -12,7 +14,6 @@ export default function Posts ({isAuthenticated,setUser,setIsAuthenticated, user
     const navigate = useNavigate()
     // const [claimed, setClaimed] = useState(false)
     const [posts, setPost] = useState([])
-    const [comment, setComment] = useState('')
 
     useEffect(() => {
         fetch("/posts")
@@ -20,7 +21,6 @@ export default function Posts ({isAuthenticated,setUser,setIsAuthenticated, user
          .then((data) => setPost(data))
     }, []);
     console.log(user)
-    console.log(comment)
     
     function onHome(){
         navigate("/map")
@@ -63,7 +63,7 @@ export default function Posts ({isAuthenticated,setUser,setIsAuthenticated, user
                             <li>{comment.content} by: {comment.user.username}</li>
                         )}
                     </ul>
-                    {user ? 
+                    {/* {user ? 
                         <form id="comment-form" class="comment-form">
                             <input
                                 class="comment-input"
@@ -91,7 +91,8 @@ export default function Posts ({isAuthenticated,setUser,setIsAuthenticated, user
                             >Post</button>
                         </form>
                     : null
-                    }
+                    } */}
+                    <Comments post={post} user={user}/>
                 </div>
             )}
         </div>

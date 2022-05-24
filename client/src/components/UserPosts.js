@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 // import { useNavigate } from "react-router"
 import Header from './Header';
+
 import './userPosts.css';
 
 
@@ -20,9 +21,6 @@ export default function UserPosts ({ isAuthenticated,setUser,setIsAuthenticated,
     const userPost = posts.filter(post => post.user.username === user.username)
     console.log(userPost)
 
-    function updateCaption(e){
-
-    }
     
     return(
         <div>

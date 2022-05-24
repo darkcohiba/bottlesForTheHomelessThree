@@ -16,7 +16,7 @@ export default function Homepage ({ isAuthenticated,setUser,setIsAuthenticated, 
         <div>
             <Header isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} setUser={setUser} user={user}/>
             <Posts isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} setUser={setUser} user={user}/>
-            {/* <Footer /> */}
+            <Footer />
         </div>
     )
 }

@@ -1,9 +1,12 @@
+
+
 #mapBoxContainer{
     border: 1px solid black;
-    background: red;
+    background: rgb(1, 26, 139);
+    position: relative;
+    /* display: flex; */
+    /* justify-content: center; */
 }
 
 #map{
-    margin-left: 100px;
-    border: 100px solid black;
 }
