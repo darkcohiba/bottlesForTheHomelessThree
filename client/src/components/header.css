@@ -1,6 +1,23 @@
-img:hover{
-    background-color: black;
+#nav{
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  background-color: grey;
+  z-index: 1;
 }
+
+
+#logo{
+  height: 50px;
+}
+
+/* img:hover{
+    background-color: black;
+} */
 
 #plus{
     width: 60px;
@@ -12,6 +29,33 @@ img:hover{
     animation: pulse-animation 2s infinite;
 }
 
+/* 
+@media (max-width: 1050px) {
+  #plus{
+    width: 50px;
+    height: 35px;
+    border-radius: 100%;
+  }
+  #logo {
+    display: none;
+  }
+
+  #logInButton {
+    width: 100%;
+    height: 35px;
+  }
+
+  #logOutButton {
+    width: 100%;
+    height: 35px;
+  }
+
+  #signupButton {
+    width: 100%;
+    height: 35px;
+  }
+} */
+
 @keyframes pulse-animation {
     0% {
       box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
@@ -20,3 +64,5 @@ img:hover{
       box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
     }
 }
+
+

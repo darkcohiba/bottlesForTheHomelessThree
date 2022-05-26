@@ -1,7 +1,39 @@
 #updateButton{
     height:25px;
+    margin-right: 10px;
 }
 
 #userPostPage{
     height: 100%;
+}
+
+#updatedPostContainer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#overall{
+    border: 1px solid black;
+    margin: 10px;
+}
+
+#postImage{
+    aspect-ratio: 1;
+    height: 100%;
+}
+
+#deleteButton{
+    height:25px;
+}
+
+#updatePostsSection #postTitle{
+    font-size: 1.5rem;
+}
+
+#newComment{
+    margin: 10px;
+    width: 300px;
+    height: 100px;
 }

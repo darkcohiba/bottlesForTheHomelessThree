@@ -29,3 +29,39 @@
     font-family: 'Koulen', cursive;
     text-align: center;
 }
+
+@media only screen and (max-width: 1670px) {
+    #footer p{
+        font-size: .9rem;
+        text-align: center;
+        font-family: 'Koulen', cursive;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 1520px) {
+    #footer p{
+        font-size: .8rem;
+        text-align: center;
+        font-family: 'Koulen', cursive;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 725px) {
+    #footer p{
+        font-size: .6rem;
+        text-align: center;
+        font-family: 'Koulen', cursive;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    #footer p{
+        font-size: .5rem;
+        text-align: center;
+        font-family: 'Koulen', cursive;
+        text-align: center;
+    }
+}

@@ -31,7 +31,7 @@ export default function Comment({post, user}){
                                     headers:{'Content-Type': 'application/json'},
                                     body:JSON.stringify(newComment)})
                                     .then(response => response.json())
-                                    .then((data) => console.log(data))
+                                    .then((data) => setComment(data))
                             }}
                     >Post</button>
                 </form>

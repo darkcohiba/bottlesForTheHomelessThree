@@ -45,8 +45,8 @@ export default function MapPage(){
     return(
         <div>
             <Header />
-            <div id="mapBoxContainer">
-                <div>
+            <div>
+                <div id="mapBoxContainer">
                     <LoadScript id ="map" googleMapsApiKey="AIzaSyCMGRs1jBu4369ZEW187WZYOXkAFaUR_Y0">
                         <GoogleMap 
                             mapContainerStyle={mapStyles}

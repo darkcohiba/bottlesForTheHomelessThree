@@ -24,6 +24,10 @@ export default function Header ({isAuthenticated,setUser,setIsAuthenticated, use
         navigate("/")
     }
 
+    function signUp(){
+        navigate("/auth")
+    }
+
     function postPage(){
         navigate("/AddPost")
     }
@@ -41,28 +45,27 @@ export default function Header ({isAuthenticated,setUser,setIsAuthenticated, use
     }
 
     return(
-        <div id="header" class="navbar-menu is-fixed-top">
-        {/* <a class="navbar-item"> */}
-            <img onClick={onMove} src={pnglogo} width="112" height="60" alt="Instagram"></img>
-            <IoMapSharp id="plus" onClick={goToMap}/>
-        {/* </a> */}
-        {/* <div class="navbar is-centered">
-            <input type="text" id="search" name='search' value = {search} placeholder="Search a post!" onChange={(event)=>{setSearch(event.target.value)}}></input>
-            <button type="button" onClick={onSubmit}>Search!</button>
-        </div> */}
-            <div className="navbar-end">
-                <div>
-                    <IoAddOutline id="plus" onClick={postPage}/>
-                </div>
+        <div id="nav" class="">
+            <div id='navStart'>
+                <img id='logo' onClick={onMove} src={pnglogo} width="112" height="60" alt="Instagram"></img>
+                <IoMapSharp id="plus" onClick={goToMap}/>
+            </div>
+            <div id='navEnd'>
+                <IoAddOutline id="plus" onClick={postPage}/>
                 {user ?
                 <IoBook id="plus" onClick={myPosts} />
                 :
                 null
                 }
                 {!user ?
-                <button className="button is-success" onClick={moveLogin}>Login</button>
+                <button id="logInButton" className="button is-success" onClick={moveLogin}>Login</button>
                 :
-                <button className="button is-warning" onClick={logout}>Logout</button>
+                <button id='logOutButton' className="button is-warning" onClick={logout}>Logout</button>
+                }
+                {user ?
+                null
+                :
+                <button id="signupButton" className="button is-success" onClick={signUp}>Sign Up</button>
                 }
             </div>
         </div>
