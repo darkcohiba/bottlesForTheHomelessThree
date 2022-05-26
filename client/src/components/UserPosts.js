@@ -23,43 +23,50 @@ export default function UserPosts ({ isAuthenticated,setUser,setIsAuthenticated,
 
     
     return(
-        <div id="userPostPage">
+        <div>
             <Header isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} setUser={setUser} user={user}/>
-            <h3>Welcome {user.username}</h3>
-            <h6>Below are all of your posts</h6>
-            <div id="updatedPostContainer">
-                {userPost.map(user =>
-                    <div id="overall">
-                        <div id="updatePostsSection" key={user.id}>
-                            <p id="postTitle">Title: {user.title} </p>
-                            <img id="postImage" src={user.bottle.picture} alt={user.title}></img>
-                            <p>Caption: {user.content}</p>
-
-                            <textarea id="newComment" value={comment} onChange={(event) =>setComment(event.target.value)} PlaceHolder="update your caption here! No Character Limit!!"></textarea><br></br>
-                            <button id="updateButton" className="button is-primary" onClick={(e)=>{
-                                // e.preventDefault();
-                                const updatedContent = {
-                                    content: comment
-                                }
-                                console.log(updatedContent)
-                                fetch(`/posts/${user.id}`, {
-                                    method: "PATCH",
-                                    headers: {"Content-Type": "application/json"},
-                                    body: JSON.stringify(updatedContent),
-                                })
-                            }}
-                            >Submit</button>
-                            <button id="deleteButton" className="button is-warning" onClick={(e)=>{
-                                fetch(`/posts/${user.id}`,{
-                                    method: "DELETE",
-                                })
-                            }}
-                            >DELETE</button>
-                        </div>
+            <div id="userPostPage">
+                <br></br>
+                <br></br>
+                <h3>Welcome {user.username}</h3>
+                <h6>Below are all of your posts</h6>
+                {!userPost ? 
+                    <div id="updatedPostContainer">
+                        {userPost.map(user =>
+                            <div id="overall">
+                                <div id="updatePostsSection" key={user.id}>
+                                    <p id="postTitle">Title: {user.title} </p>
+                                    <img id="postImage" src={user.bottle.picture} alt={user.title}></img>
+                                    <p>Caption: {user.content}</p>
+                                    <textarea id="newComment" value={comment} onChange={(event) =>setComment(event.target.value)} PlaceHolder="update your caption here! No Character Limit!!"></textarea><br></br>
+                                    <button id="updateButton" className="button is-primary" onClick={(e)=>{
+                                        // e.preventDefault();
+                                        const updatedContent = {
+                                            content: comment
+                                        }
+                                        console.log(updatedContent)
+                                        fetch(`/posts/${user.id}`, {
+                                            method: "PATCH",
+                                            headers: {"Content-Type": "application/json"},
+                                            body: JSON.stringify(updatedContent),
+                                        })
+                                    }}
+                                    >Submit</button>
+                                    <button id="deleteButton" className="button is-warning" onClick={(e)=>{
+                                        fetch(`/posts/${user.id}`,{
+                                            method: "DELETE",
+                                        })
+                                    }}
+                                    >DELETE</button>
+                                </div>
+                            </div>
+                        )}
                     </div>
-                )}
+                : 
+                <p>you have no posts to edit!</p>
+                }
             </div>
-
         </div>
+        
     )
 }

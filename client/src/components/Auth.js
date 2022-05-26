@@ -40,21 +40,20 @@ function Auth({setUser, setIsAuthenticated}) {
         })
     }
     return (
-      <div className="wrapper">
-        <div className="">
-          <div>
-            <h2 className="">Create an Account!</h2>
-            <p className="">
+      <div className="mainWrapper">
+        <div className="wrapper">
+          <div >
+            <h2 className="titleCreate">Create an Account!</h2>
+            <p className="signInHere">
               Or{' '}
-              <a href="/login" className="">
+              <a href="/login" className="link">
                 Sign in Here!
               </a>
             </p>
           </div>
           <form className="" >
-            <input type="hidden" name="remember" defaultValue="true" />
             <div className="">
-              <div>
+              <div className="inputBox">
                 <label htmlFor="email-address" className="sr-only">
                   Email address{' '}
                 </label>
@@ -64,12 +63,12 @@ function Auth({setUser, setIsAuthenticated}) {
                   type="email"
                   autoComplete="email"
                   required
-                  className=""
+                  className="email"
                   placeholder="Email address"
                   onChange={(event) =>setEmail(event.target.value)}
                 />
               </div>
-              <div>
+              <div className="inputBox">
                 <label htmlFor="user-name" className="sr-only">
                   Username{' '}
                 </label>
@@ -78,12 +77,12 @@ function Auth({setUser, setIsAuthenticated}) {
                   name="username"
                   type="username"
                   required
-                  className=""
+                  className="username"
                   placeholder="User Name"
                   onChange={(event) =>setUserName(event.target.value)}
                 />
               </div>
-              <div>
+              <div className="inputBox">
                 <label htmlFor="password" className="sr-only">
                   Password{' '}
                 </label>
@@ -92,19 +91,19 @@ function Auth({setUser, setIsAuthenticated}) {
                   name="password"
                   type="password"
                   required
-                  className=""
+                  className="password"
                   placeholder="Password"
                   onChange={(event) =>setPassword(event.target.value)}
                 />
               </div>
               <div>
-                <p>Are you a NonProfit?</p>
-                {!isNonProfit ? <button className="button is-warning" onClick={(e) => {e.preventDefault(); setIsNonProfit(!isNonProfit)}} >YES </button> : <button className="button is-warning" onClick={(e) => {e.preventDefault(); setIsNonProfit(!isNonProfit)}}  >NO </button> }              </div>
+                <p id="question">Are you a NonProfit?(automatically set to no)</p>
+                {!isNonProfit ? <button id="nonProfitButton" className="button is-warning" onClick={(e) => {e.preventDefault(); setIsNonProfit(!isNonProfit)}} >YES </button> : <button id="nonProfitButton" className="button is-warning" onClick={(e) => {e.preventDefault(); setIsNonProfit(!isNonProfit)}}  >NO </button> }              </div>
             </div>
             <div>
               <button
                 type="submit"
-                className="" onClick={onSubmit}>
+                className="submitButton" onClick={onSubmit}>
                 <span className="">
                 </span>
                 Sign in

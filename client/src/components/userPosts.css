@@ -8,10 +8,11 @@
 }
 
 #updatedPostContainer{
-    width: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
+    height: 100vh;
+    width: 100vw;
 }
 
 #overall{
@@ -20,8 +21,8 @@
 }
 
 #postImage{
-    aspect-ratio: 1;
-    height: 100%;
+    height: 250px;
+    width: 350px;
 }
 
 #deleteButton{

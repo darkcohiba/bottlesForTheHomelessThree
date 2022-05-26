@@ -51,7 +51,11 @@ export default function Header ({isAuthenticated,setUser,setIsAuthenticated, use
                 <IoMapSharp id="plus" onClick={goToMap}/>
             </div>
             <div id='navEnd'>
+                {user ?
                 <IoAddOutline id="plus" onClick={postPage}/>
+                :
+                null
+                }
                 {user ?
                 <IoBook id="plus" onClick={myPosts} />
                 :

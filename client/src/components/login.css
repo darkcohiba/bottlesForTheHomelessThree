@@ -1,10 +1,10 @@
-h2 {
+.titleLogin {
     text-align: center;
     text-decoration: underline;
     /* text-decoration-thickness: 10px; */
 }
 
-.createAccount{
+/* .createAccount{
     text-align: center;
     background-color: black;
-}
+} */

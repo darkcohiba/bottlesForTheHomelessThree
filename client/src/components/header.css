@@ -10,6 +10,14 @@
   z-index: 1;
 }
 
+#signupButton{
+  margin: 0 10px 0 10px;
+  height: 40px;
+}
+
+#logOutButton{
+  margin: 5px 10px 0 10px;
+}
 
 #logo{
   height: 50px;

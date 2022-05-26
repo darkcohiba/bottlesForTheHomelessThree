@@ -11,7 +11,7 @@ import pnglogo from "../assets/RecyclingIcon.png"
 
 
 
-export default function MapPage(){
+export default function MapPage({ isAuthenticated,setUser,setIsAuthenticated, user}){
 
     const [add, setAdd]= useState([])
     const [selected, setSelected]= useState(null)
@@ -22,15 +22,13 @@ export default function MapPage(){
          .then((data) => setAdd(data))
     }, []);
 
-    console.log(add)
-
     const defaultCenter = {
         lng: -105.001715,
         lat: 39.752657,
     }
 
     const mapStyles = {
-        height: '92vh',
+        height: '95vh',
         width: '80%',
         left: "150px",
     }
@@ -40,11 +38,10 @@ export default function MapPage(){
         zoomControl: true,
     }
     console.log(selected)
-
     
     return(
         <div>
-            <Header />
+            <Header isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} setUser={setUser} user={user}/>
             <div>
                 <div id="mapBoxContainer">
                     <LoadScript id ="map" googleMapsApiKey="AIzaSyCMGRs1jBu4369ZEW187WZYOXkAFaUR_Y0">
