@@ -20,7 +20,6 @@ export default function Posts ({isAuthenticated,setUser,setIsAuthenticated, user
          .then(response =>response.json())
          .then((data) => setPost(data))
     }, []);
-    console.log(user)
     
     function onHome(){
         navigate("/map")
@@ -33,7 +32,7 @@ export default function Posts ({isAuthenticated,setUser,setIsAuthenticated, user
                     <h4 id="card-owner" class="owner">Uploaded by: {post.user.username}</h4>
                     <img id="card-image" class="image" src={post.bottle.picture} alt={post.title} />
                     <div className="address-claimed">
-                        <p onClick={onHome}>{post.addresses.line_1},{"\n"}
+                        <p onClick={onHome}>{post.addresses.line_1},{' '}
                         {post.addresses.city}, {post.addresses.state} {post.addresses.zipcode}
                         </p>
                         {!post.bottle.isClaimed ? <button id="like-button" class="like-button" 
@@ -55,9 +54,13 @@ export default function Posts ({isAuthenticated,setUser,setIsAuthenticated, user
                         <button id="claimed-button" class="claimed-button" >CLAIMED</button>}
                         
                     </div>
-                    <div>
+                    <div id="caption">
                         {post.content}
                     </div>
+                    {console.log(post)}
+                    <p id="isGlass">Contains glass: {post.bottle.isGlass ? "True" : "False"}</p>
+                    <br></br>
+                    <h6>Commments:</h6>
                     <ul id="comments-list" class="comments">
                         {post.comments.map(comment => 
                             <li>{comment.content} by: {comment.user.username}</li>

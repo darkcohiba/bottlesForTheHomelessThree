@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 import {useNavigate} from 'react-router-dom'
+import './login.css';
+
 
 function Login({isAuthenticated,setUser,setIsAuthenticated, user}) {
 
@@ -38,15 +40,17 @@ function Login({isAuthenticated,setUser,setIsAuthenticated, user}) {
       })
   }
   return (
-    <div className="columns is-multiline is-1">
+    <div>
+      <iframe src='https://my.spline.design/portalcopy-98b0b6b58117b59393b37e3147d5f436/' frameborder='0' width='100%' height='620px%'></iframe>
+      <div className="columns is-multiline is-1">
         <div className="column is-half is-offset-one-quarter">
-          <h2 className="">Sign in to your account</h2>
-          <p className="">
+          <h2 className="titleLogin">Sign in to your account</h2>
+          {/* <p id="createAccount">
             Or{' '}
             <a href="/auth" className="" title="">
               create an account here!
             </a>
-          </p>
+          </p> */}
         </div>
         <div class="column is-half is-offset-one-quarter field">
           <p class="control">
@@ -63,13 +67,13 @@ function Login({isAuthenticated,setUser,setIsAuthenticated, user}) {
               Login
             </button>
         </div>
-          <div className="column is-half is-offset-one-quarter">
+          {/* <div className="column is-half is-offset-one-quarter">
             <div >
               <a href="/auth" className="">
                 Forgot your password?...create a new account!
               </a>
             </div>
-          </div>
+          </div> */}
           <div className="column is-offset-one-quarter ">
             <button
               type="submit"
@@ -81,7 +85,9 @@ function Login({isAuthenticated,setUser,setIsAuthenticated, user}) {
           <div className="column is-offset-one-quarter ">
             {error?<div>{error}</div>:null}
           </div>
+      </div>
     </div>
+    
   )
 }
 

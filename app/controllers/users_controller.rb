@@ -34,7 +34,7 @@ class UsersController < ApplicationController
       render json: @user, status: :created, location: @user
       puts @user
       puts @user.email
-      UserMailer.with(user: @user).welcome_email.deliver_now
+      UserMailer.with(user: @user).welcome_email.deliver_later
     else
       render json: @user.errors, status: :unprocessable_entity
     end

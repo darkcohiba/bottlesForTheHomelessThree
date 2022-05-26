@@ -4,9 +4,6 @@ import pnglogo from "../assets/2.png"
 import './header.css';
 import { IoAddOutline, IoMapSharp, IoBook } from "react-icons/io5";
 
- 
-
-
 
 export default function Header ({isAuthenticated,setUser,setIsAuthenticated, user}){
 
@@ -44,7 +41,7 @@ export default function Header ({isAuthenticated,setUser,setIsAuthenticated, use
     }
 
     return(
-        <div class="navbar-menu is-fixed-top">
+        <div id="header" class="navbar-menu is-fixed-top">
         {/* <a class="navbar-item"> */}
             <img onClick={onMove} src={pnglogo} width="112" height="60" alt="Instagram"></img>
             <IoMapSharp id="plus" onClick={goToMap}/>

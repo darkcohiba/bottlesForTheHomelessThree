@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 import {useNavigate} from 'react-router-dom'
+import './auth.css';
+
 
 function Auth({setUser, setIsAuthenticated}) {
   const navigate = useNavigate();
@@ -38,7 +40,7 @@ function Auth({setUser, setIsAuthenticated}) {
         })
     }
     return (
-      <div className="">
+      <div className="wrapper">
         <div className="">
           <div>
             <h2 className="">Create an Account!</h2>
@@ -54,7 +56,7 @@ function Auth({setUser, setIsAuthenticated}) {
             <div className="">
               <div>
                 <label htmlFor="email-address" className="sr-only">
-                  Email address
+                  Email address{' '}
                 </label>
                 <input
                   id="email-address"
@@ -69,7 +71,7 @@ function Auth({setUser, setIsAuthenticated}) {
               </div>
               <div>
                 <label htmlFor="user-name" className="sr-only">
-                  Username
+                  Username{' '}
                 </label>
                 <input
                   id="userName"
@@ -83,7 +85,7 @@ function Auth({setUser, setIsAuthenticated}) {
               </div>
               <div>
                 <label htmlFor="password" className="sr-only">
-                  Password
+                  Password{' '}
                 </label>
                 <input
                   id="password"

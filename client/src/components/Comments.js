@@ -1,4 +1,4 @@
-import './posts.css';
+import './comment.css';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router"
 

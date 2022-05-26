@@ -17,7 +17,8 @@
 }
 .image-card {
   width: 300px;
-  border: 1px solid #00000020;
+  border: 10px solid #e07272ef;
+  box-shadow: 0 0 10px 10px grey;
   border-radius: 2px;
   text-align: left;
   background-color: white;
@@ -92,10 +93,18 @@
   border: solid black 1px;
 }
 
+#caption{
+  border-bottom: solid black 1px;
+}
+
+#isGlass{
+  border-bottom: solid black 1px;
+}
 
 
 .comments {
-  list-style-type: none;
+  list-style-type: circle;
+  list-style-position: inside;
   margin-left: 0;
   padding-left: 10px;
   font-size: 0.85rem;
@@ -104,7 +113,8 @@
 .comments li {
   margin: 2px 0;
   letter-spacing: 0.2px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  /* list-style-type: circle; */
 }
 
 .comment-form {

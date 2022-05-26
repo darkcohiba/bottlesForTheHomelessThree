@@ -23,7 +23,7 @@ export default function UserPosts ({ isAuthenticated,setUser,setIsAuthenticated,
 
     
     return(
-        <div>
+        <div id="userPostPage">
             <Header isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} setUser={setUser} user={user}/>
             <h3>Welcome {user.username}</h3>
             <h6>Below are all of your posts</h6>

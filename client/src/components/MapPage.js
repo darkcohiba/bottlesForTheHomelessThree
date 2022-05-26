@@ -31,7 +31,8 @@ export default function MapPage(){
 
     const mapStyles = {
         height: '92vh',
-        width: '80%'
+        width: '80%',
+        left: "150px",
     }
 
     const options = {
