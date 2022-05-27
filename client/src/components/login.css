@@ -4,6 +4,14 @@
     /* text-decoration-thickness: 10px; */
 }
 
+#logoImage{
+    position: relative;
+    left: 30%;
+    height: 340px;
+    width: 700px;
+    margin-bottom: 20px;
+}
+
 /* .createAccount{
     text-align: center;
     background-color: black;

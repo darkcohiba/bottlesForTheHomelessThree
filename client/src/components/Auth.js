@@ -9,8 +9,7 @@ function Auth({setUser, setIsAuthenticated}) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [isNonProfit, setIsNonProfit] = useState(false)
-   
-    const [errors, setErrors] = useState([])
+    const [errors, setErrors] = useState("")
 
     function onSubmit(e){
         e.preventDefault()
@@ -35,10 +34,11 @@ function Auth({setUser, setIsAuthenticated}) {
             })
           } else {
             res.json()
-            .then(json => setErrors(json.errors))
+            .then(json => setErrors(json.error))
           }
         })
     }
+    console.log(errors)
     return (
       <div className="mainWrapper">
         <div className="wrapper">
@@ -100,6 +100,7 @@ function Auth({setUser, setIsAuthenticated}) {
                 <p id="question">Are you a NonProfit?(automatically set to no)</p>
                 {!isNonProfit ? <button id="nonProfitButton" className="button is-warning" onClick={(e) => {e.preventDefault(); setIsNonProfit(!isNonProfit)}} >YES </button> : <button id="nonProfitButton" className="button is-warning" onClick={(e) => {e.preventDefault(); setIsNonProfit(!isNonProfit)}}  >NO </button> }              </div>
             </div>
+              {errors?<div>{errors}</div>:null}
             <div>
               <button
                 type="submit"

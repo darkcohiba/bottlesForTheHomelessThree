@@ -18,6 +18,8 @@
 #overall{
     border: 1px solid black;
     margin: 10px;
+    height: 500px;
+    width: 300px;
 }
 
 #postImage{
@@ -29,12 +31,27 @@
     height:25px;
 }
 
+#oldComment{
+    text-align: center;
+}
+
 #updatePostsSection #postTitle{
     font-size: 1.5rem;
 }
 
 #newComment{
     margin: 10px;
-    width: 300px;
+    width: 250px;
     height: 100px;
+}
+
+#welcomeTitle{
+    text-align: center;
+    font-size: 1.5rem;
+
+}
+
+#postsBelow{
+    text-align: center;
+    font-size: 1.3rem;
 }

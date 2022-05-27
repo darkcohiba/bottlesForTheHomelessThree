@@ -40,7 +40,7 @@ export default function AddBottle ({ isAuthenticated,setUser,setIsAuthenticated,
             <Header isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} setUser={setUser} user={user}/>
             <div id="wrapper">
                 <div id="bottleInfo">
-                    <h3>Bottle Information</h3>
+                    <h3 id="bottleTitleInfo">Bottle Information</h3>
                     <br></br>
                     <form className="form">
                         <input className=" input is-link" type="text" placeholder="Picture Link..." value={photo} onChange={(event) =>setPhoto(event.target.value)}></input>

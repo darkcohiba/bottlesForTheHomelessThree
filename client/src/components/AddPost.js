@@ -48,7 +48,7 @@ export default function AddPost ({ isAuthenticated,setUser,setIsAuthenticated, u
             <Header isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} setUser={setUser} user={user}/>
             <div id="wrapper">
                 <div id="postInfo">
-                    <h3>Post Information</h3>
+                    <h3 id="addPostInfoTitle">Post Information</h3>
                     <form className="form">
                         <input className=" input" type="text" placeholder="Post Title..." value={title} onChange={(event) =>setTitle(event.target.value)}></input>
                         <input className=" input" type="text" placeholder="Caption..." value={content} onChange={(event) =>setContent(event.target.value)}></input>

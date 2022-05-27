@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 // import { useNavigate } from "react-router"
 import Header from './Header';
-
 import './userPosts.css';
 
 
@@ -28,16 +27,16 @@ export default function UserPosts ({ isAuthenticated,setUser,setIsAuthenticated,
             <div id="userPostPage">
                 <br></br>
                 <br></br>
-                <h3>Welcome {user.username}</h3>
-                <h6>Below are all of your posts</h6>
-                {!userPost ? 
+                <h3 id="welcomeTitle">Welcome {user.username}!</h3>
+                <h6 id="postsBelow">Below are all of your posts</h6>
+                {userPost ? 
                     <div id="updatedPostContainer">
                         {userPost.map(user =>
                             <div id="overall">
                                 <div id="updatePostsSection" key={user.id}>
                                     <p id="postTitle">Title: {user.title} </p>
                                     <img id="postImage" src={user.bottle.picture} alt={user.title}></img>
-                                    <p>Caption: {user.content}</p>
+                                    <p id="oldComment">Caption: {user.content}</p>
                                     <textarea id="newComment" value={comment} onChange={(event) =>setComment(event.target.value)} PlaceHolder="update your caption here! No Character Limit!!"></textarea><br></br>
                                     <button id="updateButton" className="button is-primary" onClick={(e)=>{
                                         // e.preventDefault();

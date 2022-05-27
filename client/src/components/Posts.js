@@ -29,43 +29,58 @@ export default function Posts ({isAuthenticated,setUser,setIsAuthenticated, user
             {posts.map(post=>
                 <div key={post.id} class="image-card">
                     <h8 id="card-title" class="title">{post.title}</h8>
-                    <h4 id="card-owner" class="owner">Uploaded by: {post.user.username}</h4>
+                    <h4 id="card-owner" class="owner">Posted by: {post.user.username}</h4>
                     <img id="card-image" class="image" src={post.bottle.picture} alt={post.title} />
                     <div className="address-claimed">
-                        <p onClick={onHome}>{post.addresses.line_1},{' '}
-                        {post.addresses.city}, {post.addresses.state} {post.addresses.zipcode}
+                        <p  onClick={onHome}>{post.addresses.line_1},{' '}
+                        {post.addresses.city}, {post.addresses.state} {post.addresses.zipcode}<br></br>(click me for a map)
                         </p>
-                        {!post.bottle.isClaimed ? <button id="like-button" class="like-button" 
-                            onClick={(e)=>{
-                                        // e.preventDefault()
-                                        const id = post.bottle.id;
-                                        const updatedBottle = {
-                                            isClaimed: true,
-                                        };
-                                        fetch(`/bottles/${id}`,{
-                                            method:'PATCH',
-                                            headers:{'Content-Type': 'application/json'},
-                                            body:JSON.stringify(updatedBottle)})
-                                            .then(response => response.json())
-                                            .then((data) => console.log(data));
-                                        window.location.reload()
-                                    }} >CLAIM</button> 
-                        : 
-                        <button id="claimed-button" class="claimed-button" >CLAIMED</button>}
-                        
+                        {!post.bottle.isClaimed ?
+                            <button id="like-button" class="like-button" 
+                                onClick={(e)=>{
+                                            e.preventDefault()
+                                            const id = post.bottle.id;
+                                            const updatedBottle = {
+                                                isClaimed: true,
+                                            };
+                                            fetch(`/bottles/${id}`,{
+                                                method:'PATCH',
+                                                headers:{'Content-Type': 'application/json'},
+                                                body:JSON.stringify(updatedBottle)})
+                                                .then(response => response.json())
+                                                .then((data) => console.log(data));
+                                            navigate("/")
+                                        }} >CLAIM</button> 
+                            : 
+                            <button id="claimed-button" class="claimed-button"
+                                onClick={(e)=>{
+                                    e.preventDefault()
+                                    const id = post.bottle.id;
+                                    const updatedBottle = {
+                                        isClaimed: false,
+                                    };
+                                    fetch(`/bottles/${id}`,{
+                                        method:'PATCH',
+                                        headers:{'Content-Type': 'application/json'},
+                                        body:JSON.stringify(updatedBottle)})
+                                        .then(response => response.json())
+                                        .then((data) => console.log(data));
+                                    navigate("/")}}
+                            >CLAIMED</button>}
                     </div>
                     <div id="caption">
-                        {post.content}
+                        <p>{" "}{post.content}{" "}</p>
                     </div>
-                    {console.log(post)}
-                    <p id="isGlass">Contains glass: {post.bottle.isGlass ? "True" : "False"}</p>
+                    <p id="isGlass">{post.bottle.isGlass ? "Recycling contains glass" : "Reclying does not contain glass."}</p>
                     <br></br>
-                    <h6>Commments:</h6>
-                    <ul id="comments-list" class="comments">
-                        {post.comments.map(comment => 
-                            <li>{comment.content} by: {comment.user.username}</li>
-                        )}
-                    </ul>
+                    <div id="commentWrapper">
+                        <h6>Commments:</h6>
+                        <ul id="comments-list" class="comments">
+                            {post.comments.map(comment => 
+                                <li>{comment.content} - {comment.user.username}</li>
+                            )}
+                        </ul>
+                    </div>
                     <Comments post={post} user={user}/>
                 </div>
             )}

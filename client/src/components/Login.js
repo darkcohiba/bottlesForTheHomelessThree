@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import {useNavigate} from 'react-router-dom'
 import './login.css';
+import pngLogo from "../assets/1.png"
+
 
 
 function Login({isAuthenticated,setUser,setIsAuthenticated, user}) {
@@ -41,8 +43,10 @@ function Login({isAuthenticated,setUser,setIsAuthenticated, user}) {
   }
   return (
     <div>
-      <iframe src='https://my.spline.design/portalcopy-98b0b6b58117b59393b37e3147d5f436/' frameborder='0' width='100%' height='620px%'></iframe>
+      
+      {/* <iframe src='https://my.spline.design/portalcopy-98b0b6b58117b59393b37e3147d5f436/' frameborder='0' width='100%' height='620px%'></iframe> */}
       <div className="columns is-multiline is-1">
+        <img id="logoImage" src={pngLogo} alt="logo"></img>
         <div className="column is-half is-offset-one-quarter">
           <h2 className="titleLogin">Sign in to your account</h2>
           {/* <p id="createAccount">
@@ -63,9 +67,12 @@ function Login({isAuthenticated,setUser,setIsAuthenticated, user}) {
         </div>
         <div class="column is-half is-offset-one-quarter field">
           <p class="control"></p>
-            <button class="button is-success" onClick={onSubmit}>
+            <button class="button is-primary" onClick={onSubmit}>
               Login
             </button>
+        </div>
+        <div className="column is-offset-one-quarter"  >
+          <p>Don't have an account? <a href="/auth">Sign Up</a></p>
         </div>
           {/* <div className="column is-half is-offset-one-quarter">
             <div >
@@ -74,14 +81,14 @@ function Login({isAuthenticated,setUser,setIsAuthenticated, user}) {
               </a>
             </div>
           </div> */}
-          <div className="column is-offset-one-quarter ">
+          {/* <div className="column is-offset-one-quarter ">
             <button
               type="submit"
               className="button is-primary" 
               >
-              <a href="/auth" className="">                Sign Up Here!</a>
+              <a href="/auth" className="">Sign Up Here!</a>
             </button>
-          </div>
+          </div> */}
           <div className="column is-offset-one-quarter ">
             {error?<div>{error}</div>:null}
           </div>

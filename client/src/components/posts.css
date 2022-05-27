@@ -17,7 +17,7 @@
 
 }
 .image-card {
-  width: 300px;
+  width: 380px;
   border: 10px solid #e07272ef;
   box-shadow: 0 0 10px 10px grey;
   border-radius: 2px;
@@ -27,8 +27,8 @@
 }
 
 .image {
-  width: 300px;
-  height: 250px;
+  width: 380px;
+  height: 300px;
   overflow: hidden;
   /* border: 1px solid black; */
 }
@@ -43,20 +43,37 @@
   text-decoration-color: aqua;
 }
 
+
+
 .address-claimed {
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 75px;
   border: 1px solid red;
-  align-items: flex-end;
   padding: 0 10px;
   cursor: pointer;
 }
 
 .address-claimed p {
-  color: red;
+  /* color: red; */
+  width: 225px;
   font-size: 0.9rem;
+  text-align: center;
+  font-weight: 1000;
+  border: solid red 2px;
+  background-color: rgb(248, 147, 147);
+  border-radius: 25px;
 }
 
 .like-button {
+  /* justify-content: flex-end; */
+  /* position: relative;
+  top: 1px;
+  left: 74px; */
+  height: 40px;
+  /* align-items: end; */
   color: rgb(255, 127, 80);
   font-size: 1.5rem;
   border: none;
@@ -75,15 +92,19 @@
   background: yellow;
 }
 
-.like-button:active {
+/* .like-button:active {
   color: rgb(253, 159, 124);
 }
 
 .like-button:focus {
   outline: none;
-}
+} */
 
 .claimed-button {
+  /* position: relative;
+  top: 1px;
+  left: 74px; */
+  height: 40px;
   color: rgb(255, 127, 80);
   margin-bottom: 5px;
   font-size: 1.2rem;
@@ -95,14 +116,23 @@
 }
 
 #caption{
+  position: relative;
+  text-align: center;
   border-bottom: solid black 1px;
+  /* text-decoration: underline; */
 }
 
 #isGlass{
-  border-bottom: solid black 1px;
+  position: relative;
+  text-align: center;
+  text-decoration: underline;
 }
 
-
+#commentWrapper{
+  /* border: 1px solid black; */
+  position: relative;
+  left: 10px;
+}
 .comments {
   list-style-type: circle;
   list-style-position: inside;

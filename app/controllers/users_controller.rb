@@ -36,7 +36,8 @@ class UsersController < ApplicationController
       puts @user.email
       UserMailer.with(user: @user).welcome_email.deliver_later
     else
-      render json: @user.errors, status: :unprocessable_entity
+      render json: { error: "Invalid Password and/or Username" }, status: :unprocessable_entity
+      # render json: @user.errors, status: :unprocessable_entity
     end
   end
 

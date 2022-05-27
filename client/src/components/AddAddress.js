@@ -47,7 +47,7 @@ export default function AddAddress ({ isAuthenticated,setUser,setIsAuthenticated
             <div id="wrapper">
                 <div id="addressInfo">
                     {/* <br></br> */}
-                    <h3>Address Information</h3>
+                    <h3 id="info">Address Information</h3>
                     <p>If you are having trouble finding the longitude and latitude of your address we reccomend the following website: <a href="https://www.gps-coordinates.net/"target="new">www.gps-coordinates.net</a>.</p>
                     <form id="formBox">
                         <input id="addressInput" className="input" type="text" placeholder="Address Line 1" value={lineOne} onChange={(event) =>setLineOne(event.target.value)} ></input>
