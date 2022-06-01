@@ -32,8 +32,6 @@ class UsersController < ApplicationController
 
     if @user.save
       render json: @user, status: :created, location: @user
-      puts @user
-      puts @user.email
       UserMailer.with(user: @user).welcome_email.deliver_later
     else
       render json: { error: "Invalid Password and/or Username" }, status: :unprocessable_entity

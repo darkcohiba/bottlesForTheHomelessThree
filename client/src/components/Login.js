@@ -72,8 +72,43 @@ function Login({isAuthenticated,setUser,setIsAuthenticated, user}) {
             </button>
         </div>
         <div className="column is-offset-one-quarter"  >
+          {error?<div>{error}</div>:null}
           <p>Don't have an account? <a href="/auth">Sign Up</a></p>
         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           {/* <div className="column is-half is-offset-one-quarter">
             <div >
               <a href="/auth" className="">
@@ -89,9 +124,9 @@ function Login({isAuthenticated,setUser,setIsAuthenticated, user}) {
               <a href="/auth" className="">Sign Up Here!</a>
             </button>
           </div> */}
-          <div className="column is-offset-one-quarter ">
+          {/* <div className="column is-offset-one-quarter ">
             {error?<div>{error}</div>:null}
-          </div>
+          </div> */}
       </div>
     </div>
     

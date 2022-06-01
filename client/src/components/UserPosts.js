@@ -37,9 +37,9 @@ export default function UserPosts ({ isAuthenticated,setUser,setIsAuthenticated,
                                     <p id="postTitle">Title: {user.title} </p>
                                     <img id="postImage" src={user.bottle.picture} alt={user.title}></img>
                                     <p id="oldComment">Caption: {user.content}</p>
-                                    <textarea id="newComment" value={comment} onChange={(event) =>setComment(event.target.value)} PlaceHolder="update your caption here! No Character Limit!!"></textarea><br></br>
+                                    <textarea id="newComment" onChange={(event) => setComment(event.target.value)} PlaceHolder="update your caption here! No Character Limit!!"></textarea><br></br>
                                     <button id="updateButton" className="button is-primary" onClick={(e)=>{
-                                        // e.preventDefault();
+                                        e.preventDefault();
                                         const updatedContent = {
                                             content: comment
                                         }

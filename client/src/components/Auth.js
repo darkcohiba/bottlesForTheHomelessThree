@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {useNavigate} from 'react-router-dom'
 import './auth.css';
+import {Form, Button, Container, Grid, Header, Segment, Message} from 'semantic-ui-react'
 
 
 function Auth({setUser, setIsAuthenticated}) {
@@ -10,6 +11,7 @@ function Auth({setUser, setIsAuthenticated}) {
     const [password, setPassword] = useState('')
     const [isNonProfit, setIsNonProfit] = useState(false)
     const [errors, setErrors] = useState("")
+    console.log(isNonProfit)
 
     function onSubmit(e){
         e.preventDefault()
@@ -40,78 +42,77 @@ function Auth({setUser, setIsAuthenticated}) {
     }
     console.log(errors)
     return (
-      <div className="mainWrapper">
-        <div className="wrapper">
-          <div >
-            <h2 className="titleCreate">Create an Account!</h2>
-            <p className="signInHere">
-              Or{' '}
-              <a href="/login" className="link">
-                Sign in Here!
-              </a>
-            </p>
-          </div>
-          <form className="" >
-            <div className="">
-              <div className="inputBox">
-                <label htmlFor="email-address" className="sr-only">
-                  Email address{' '}
-                </label>
-                <input
-                  id="email-address"
+      <div>
+<Container className="mainWrapper">
+  <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+    <Grid.Column style={{ maxWidth: 450 }}>
+      <Header as='h2' color='teal' textAlign='center'>
+      Create an Account!
+      </Header>
+        <Form size='large'>
+          <Segment stacked>
+    <Form.Field>
+      <label>E-Mail Address</label>
+      <input   id="email-address"
                   name="email"
                   type="email"
                   autoComplete="email"
                   required
                   className="email"
-                  placeholder="Email address"
-                  onChange={(event) =>setEmail(event.target.value)}
-                />
-              </div>
-              <div className="inputBox">
-                <label htmlFor="user-name" className="sr-only">
-                  Username{' '}
-                </label>
-                <input
-                  id="userName"
+                  placeholder="john@doe.com"  
+                  onChange={(event) =>setEmail(event.target.value)}  />
+    </Form.Field>
+
+
+
+    <Form.Field>
+      <label>Username</label>
+      <input   id="username"
                   name="username"
-                  type="username"
                   required
                   className="username"
-                  placeholder="User Name"
-                  onChange={(event) =>setUserName(event.target.value)}
-                />
-              </div>
-              <div className="inputBox">
-                <label htmlFor="password" className="sr-only">
-                  Password{' '}
-                </label>
-                <input
-                  id="password"
+                  placeholder="username"  
+                  onChange={(event) =>setUserName(event.target.value)}/>
+    </Form.Field>
+
+    
+     <Form.Field>
+      <label>Password</label>
+      <input id="password"
                   name="password"
                   type="password"
                   required
                   className="password"
                   placeholder="Password"
-                  onChange={(event) =>setPassword(event.target.value)}
-                />
-              </div>
+                  onChange={(event) =>setPassword(event.target.value)} />
+    </Form.Field>
+
+              <p style={{marginTop: "1em"}}> Are You A NonProfit? </p>
               <div>
-                <p id="question">Are you a NonProfit?(automatically set to no)</p>
-                {!isNonProfit ? <button id="nonProfitButton" className="button is-warning" onClick={(e) => {e.preventDefault(); setIsNonProfit(!isNonProfit)}} >YES </button> : <button id="nonProfitButton" className="button is-warning" onClick={(e) => {e.preventDefault(); setIsNonProfit(!isNonProfit)}}  >NO </button> }              </div>
-            </div>
-              {errors?<div>{errors}</div>:null}
-            <div>
-              <button
-                type="submit"
+                {!isNonProfit ? <button id="nonProfitButton" className="button is-warning" onClick={(e) => {e.preventDefault(); setIsNonProfit(!isNonProfit)}} >Yes, Non Profit </button> : 
+                <Button id="nonProfitButton" color='orange' className="button is-warning" onClick={(e) => {e.preventDefault(); setIsNonProfit(!isNonProfit)}}  >  NO </Button> }
+              </div>
+              <Button
+                type="submit" color="primary"
                 className="submitButton" onClick={onSubmit}>
-                <span className="">
-                </span>
-                Sign in
-              </button>
-            </div>
-          </form>
-        </div>
+                Sign Up
+              </Button>
+              {errors?<div>{errors}</div>:null}
+    </Segment>
+    </Form>
+            {/* <div>
+                {!isNonProfit ? <button id="nonProfitButton" className="button is-warning" onClick={(e) => {e.preventDefault(); setIsNonProfit(!isNonProfit)}} >Yes, Non Profit </button> : 
+                <Button id="nonProfitButton" color='orange' className="button is-warning" onClick={(e) => {e.preventDefault(); setIsNonProfit(!isNonProfit)}}  >  NO </Button> }
+            </div> */}
+                {/* <Button.Group>
+                  <Button  id="nonProfitButton" color="light yellow" onClick={(e) => {e.preventDefault(); setIsNonProfit(!isNonProfit)}}  > Yes </Button>
+                  <Button.Or />
+                  <Button  id="nonProfitButton" color="primary" onClick={(e) => {e.preventDefault(); setIsNonProfit(!isNonProfit)}}  >No </Button>
+                </Button.Group> */}
+            </Grid.Column>
+  </Grid>
+  </Container>
+    
       </div>
   )
 }

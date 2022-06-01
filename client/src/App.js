@@ -10,6 +10,7 @@ import AddBottle from './components/AddBottle';
 import AddAddress from './components/AddAddress';
 import UserPosts from './components/UserPosts';
 import Protected from './Protected';
+import 'semantic-ui-css/semantic.min.css'
 import 'bulma/css/bulma.min.css';
 
 function App() {
