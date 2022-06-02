@@ -14,6 +14,8 @@ export default function Posts ({isAuthenticated,setUser,setIsAuthenticated, user
     const navigate = useNavigate()
     // const [claimed, setClaimed] = useState(false)
     const [posts, setPost] = useState([])
+    const [claim, setClaim] = useState(false)
+    
 
     useEffect(() => {
         fetch("/posts")
@@ -24,6 +26,17 @@ export default function Posts ({isAuthenticated,setUser,setIsAuthenticated, user
     function onHome(){
         navigate("/map")
     }
+
+    // function onPageLoad(){
+    //     fetch("/posts")
+    //      .then(response =>response.json())
+    //      .then((data) => setPost(data))
+    // }
+
+    // function resetPosts(){
+    //     console.log('effected the useEffect!')
+    // }
+
     return(
         <div class="post-container">
             {posts.map(post=>
@@ -49,7 +62,11 @@ export default function Posts ({isAuthenticated,setUser,setIsAuthenticated, user
                                                 body:JSON.stringify(updatedBottle)})
                                                 .then(response => response.json())
                                                 .then((data) => console.log(data));
-                                            navigate("/")
+                                            fetch("/posts")
+                                                .then(response =>response.json())
+                                                .then((data) => setPost(data))
+                                            // navigate("/")
+                                            
                                         }} >CLAIM</button> 
                             : 
                             <button id="claimed-button" class="claimed-button"
@@ -65,7 +82,11 @@ export default function Posts ({isAuthenticated,setUser,setIsAuthenticated, user
                                         body:JSON.stringify(updatedBottle)})
                                         .then(response => response.json())
                                         .then((data) => console.log(data));
-                                    navigate("/")}}
+                                    fetch("/posts")
+                                        .then(response =>response.json())
+                                        .then((data) => setPost(data));
+                                    // navigate("/")
+                                }}
                             >CLAIMED</button>}
                     </div>
                     <div id="caption">

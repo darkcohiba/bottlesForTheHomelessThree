@@ -20,7 +20,7 @@ export default function Comment({post, user}){
                         onChange={(event) =>setComment(event.target.value)}
                     />
                     <button class="comment-button" type="submit" onClick={(e)=>{
-                                // e.preventDefault()
+                                e.preventDefault()
                                 const newComment = {
                                     content: comment,
                                     user_id: user.id,
